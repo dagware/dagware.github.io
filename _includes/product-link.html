@@ -1,0 +1,22 @@
+{% if include.output-youtube-text %}
+{{ include.youtube-text }}: <a href="{{ include.link }}" target="_blank">{{ include.link }}</a>
+{% else %}
+<div>
+<a href="{{ include.link }}" target="_blank" class="align-left">
+  <img src="{{ include.image }}" alt="" title="this is a test"
+    onerror="this.src = '/missing-ad-pic.jpg'; onerror='';"
+    width="{{ include.image-width | default: 100 }}px"
+    style="max-height: {{ include.image-max-height | default: 100 }}px; object-fit: contain"
+    class="image-border">
+</a>
+
+<span style="display: inline-block; margin-top: {{ include.margin-top | default: 10 }}px; font-size: 115%">
+  <a href="{{ include.link }}" target="_blank">{{ include.title }}</a>
+</span>
+{% if include.text %}
+<br/>
+{{ include.text }}
+{% endif %}
+</div>
+<p style="clear: left; margin: 0"></p>
+{% endif %}

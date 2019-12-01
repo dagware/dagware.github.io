@@ -1,0 +1,10 @@
+{% assign projects = site.pages | where: "category", "project" | sort: "project-sort-order" %}
+{% for project in projects reversed %}
+  <h3><a href="{{ project.url }}">{{ project.title }}</a></h3>
+
+  <a href="{{ project.url }}" class="align-left"><img src="{{ project.project-image }}" alt="" width="150px"></a>
+
+  <p>{{ project.project-description }}</p>
+
+  <hr style="clear: left" />
+{% endfor %}

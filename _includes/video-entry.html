@@ -1,0 +1,37 @@
+<div id="video-entry-{{ video.id }}" style="padding-top: 20px;">
+  <h3><a href="https://youtu.be/{{ video.id }}" target="_blank">{{ video.title }}</a></h3>
+
+  <p><a href="https://youtu.be/{{ video.id }}" target="_blank" class="align-left image-border"><img src="{{ video.thumbnailUrl }}" alt="" /></a>
+  {{ video.description }}
+  </p>
+  {% if video.articleLink %}
+    <div style="margin-bottom: 10px">
+    <a href="{{ video.articleLink }}" title="View the Article">
+      <span style="margin-right: 10px"><img src="/assets/images/article32.png" alt="Article"></span>
+      <span class="label">View the Article</span>
+      <br/>
+    </a>
+    </div>
+  {% endif %}
+
+  {% if video.productsLink %}
+    {% assign productsLink = video.productsLink %}
+  {% else %}
+    {% assign products = site.data.products-by-video[video.id] %}
+    {% if products %}
+      {% capture productsLink %}/video/{{ video.uid }}/{% endcapture %}
+    {% else %}
+      {% assign productsLink = nil %}
+    {% endif %}
+  {% endif %}
+
+  {% if productsLink %}
+  <div>
+    <a href="{{ productsLink }}" title="Products">
+      <span style="margin-right: 10px"><img src="/assets/images/products32.png" alt="Products"></span>
+      <span class="label">Products</span>
+    </a>
+  </div>
+  {% endif %}
+  <hr style="clear: left" />
+</div>

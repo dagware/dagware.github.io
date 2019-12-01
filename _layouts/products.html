@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+    </article>
+
+{% include nav-btn-back.html link="/products/" text="Back to Products" %}
+
+{% if page.product-category %}
+<p>You can use your browser's search function to search through this list. For most desktop browsers, just tap Control+F or Command+F.</p>
+{% endif %}
+
+{% include product-categories.html %}
+
+<hr class="hr-thick" style="margin-bottom: 30px;">
+
+{% if page.product-category == "all" %}
+  {% for product_hash in site.data.products  %}
+    {% assign product = product_hash[1] %}
+    {% include product-link-from-data.html data=product %}
+    <hr class="hr-thick" style="margin-bottom: 30px;">
+  {% endfor %}
+{% else %}
+  {% for product-id in site.data.products-by-category[page.product-category]  %}
+    {% assign product = site.data.products[product-id] %}
+    {% include product-link-from-data.html data=product %}
+    <hr class="hr-thick" style="margin-bottom: 30px;">
+  {% endfor %}
+{% endif %}
+
+{% if page.product-category %}
+<p>* I may earn a small commission on some of these links, at no extra cost to you. Thanks for your support!</p>
+{% endif %}
+
+  </div>
+</main>

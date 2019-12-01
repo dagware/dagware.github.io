@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+
+    {% if page.back_btn_link and page.back_btn_text %}
+      {% include nav-btn-back.html link=page.back_btn_link text=page.back_btn_text margin-bottom="20" %}
+    {% endif %}
+
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+    </article>
+  </div>
+</main>

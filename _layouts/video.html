@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+    </article>
+
+{% include youtube-player.html id=page.video-id %}
+
+<p></p>
+
+{% assign products = site.data.products-by-video[page.video-id]  %}
+
+{% unless page.hide-description %}
+<p>{{ site.data.videos[page.video-id].description }}</p>
+{% endunless %}
+
+{% if products %}
+<h3 id="products">Products</h3>
+
+{% for product-item in products  %}
+
+<hr class="hr-thick"><p></p>
+{% assign product = site.data.products[product-item.id] %}
+{% include product-link-from-data.html data=product text=product-item.text %}
+{% endfor %}
+
+{% endif %}
+
+<hr class="hr-thick">
+
+<p></p>
+
+  </div>
+</main>

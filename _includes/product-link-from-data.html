@@ -1,0 +1,19 @@
+{% capture my-title %}{{ include.title | default: include.data.title }}{% endcapture %}
+{% capture my-image %}{{ include.image | default: include.data.image }}{% endcapture %}
+{% capture my-link %}{{ include.link | default: include.data.link }}{% endcapture %}
+{% capture my-margin-top %}{{ include.margin-top | default: include.data.margin-top }}{% endcapture %}
+{% capture my-text %}{{ include.text | default: include.data.text }}{% endcapture %}
+{% capture my-youtube-text %}{{ include.data.youtube-text | default: include.data.title }}{% endcapture %}
+
+{% include product-link.html
+  id="product-link-from-data"
+  title=my-title
+  image=my-image
+  image-width=include.image-width
+  image-max-height=include.image-max-height
+  link=my-link
+  margin-top=my-margin-top
+  text=my-text
+  output-youtube-text=include.output-youtube-text
+  youtube-text=my-youtube-text
+%}

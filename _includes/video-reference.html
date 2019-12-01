@@ -1,0 +1,18 @@
+{% assign video = site.data.videos[include.video-id] %}
+{% capture my-url %}https://youtu.be/{{ video.id }}{% if include.timecode %}?start={{ include.timecode }}{% endif %}{% endcapture %}
+
+<div id="video-reference-{{ video.id }}" style="clear: left">
+
+  <p>
+    <a href="{{ my-url }}" target="_blank" class="align-left image-border">
+      <img src="{{ include.thumbnailUrl | default: video.thumbnailUrl }}" style="max-width: 150px" alt="" />
+    </a>
+    <p{% if include.padding-top %} style="padding-top: {{ include.padding-top }}px"{% endif %}>
+      {{ include.title-prefix-text }}
+      <a href="{{ my-url }}" target="_blank" class="entry-font-larger">{{ include.title | default: video.title }}</a>
+      <br/>
+      {{ include.description | default: video.description }}
+    </p>
+  </p>
+
+</div>

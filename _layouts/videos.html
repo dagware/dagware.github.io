@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+    </article>
+
+    <h3 id="categories">Categories</h3>
+
+<span style="padding-right: 1em">
+{% if page.video-category == "all" %}
+  <b>all</b>
+{% else %}
+  <a href="/videos/">all</a>
+{% endif %}
+</span>
+
+{% for category in site.data.video-categories %}
+  <span style="padding-right: 1em">
+  {% if category == page.video-category %}
+    <b>{{ category }}</b>
+  {% else %}
+    <a href="/videos/{{ category }}/">{{ category }}</a>
+  {% endif %}
+  </span>
+{% endfor %}
+
+<hr/>
+
+{% if page.video-category == "all" %}
+  {% for video_hash in site.data.videos  %}
+    {% assign video = video_hash[1] %}
+    {% if video.hidden != "true" %}
+      {% include video-entry.html %}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% for video-id in site.data.videos-by-category[page.video-category]  %}
+    {% assign video = site.data.videos[video-id] %}
+    {% if video.hidden != "true" %}
+      {% include video-entry.html %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+  </div>
+</main>

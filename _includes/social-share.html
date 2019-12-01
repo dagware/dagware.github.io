@@ -1,0 +1,25 @@
+<ul class="contact-list">
+
+  <a name="Share"><b>SHARE:</b></a>
+  <br/>
+
+  <li>
+    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter">
+      <span class="icon icon--twitter">{% include icon-twitter.svg %}</span>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+      <span class="icon icon--facebook">{% include icon-facebook.svg %}</span>
+      <span class="label">Facebook</span>
+    </a>
+  </li>
+  <li>
+    <a href="mailto:?body={{ page.url | absolute_url }}">
+      <span class="icon icon--email">{% include icon-email.svg %}</span>
+      <span class="label">Email</span>
+    </a>
+  </li>
+
+</ul>

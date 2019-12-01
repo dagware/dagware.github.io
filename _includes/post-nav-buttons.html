@@ -1,0 +1,22 @@
+<div class="post-nav-buttons">
+
+  <a href="#" id="returnButton" class="btn no-bold hidden">
+    <span class="icon nav-btn-icon-left">{% include icon-arrow-left.svg %}</span>
+    <span id="returnButtonText">Back</span>
+  </a>
+
+  {% if page.categories contains "PoweredUp" %}
+    <p>
+      <a href="{{ site.baseurl }}{% link poweredup.md %}" class="btn no-bold navButton"><span class="icon nav-btn-icon-left">{% include icon-arrow-left.svg %}</span> Back to Powered Up Posts</a>
+    </p>
+  {% endif %}
+
+  <p>
+    {% if page.previous != nil %}
+      <a href="{{ page.previous.url }}" class="btn no-bold navButton"><span class="icon nav-btn-icon-left">{% include icon-arrow-left.svg %}</span> Older: <i>"{{ page.previous.title | truncate: 35 }}"</i></a>
+    {% endif %}
+    {% if page.next != nil %}
+      <a href="{{ page.next.url }}" class="btn no-bold navButton">Newer: <i>"{{ page.next.title | truncate: 33 }}"</i> <span class="icon nav-btn-icon-right">{% include icon-arrow-right.svg %}</span></a>
+    {% endif %}
+  </p>
+</div>

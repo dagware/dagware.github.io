@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+
+    {% if page.back_btn_link and page.back_btn_text %}
+      {% include nav-btn-back.html link=page.back_btn_link text=page.back_btn_text %}
+    {% endif %}
+
+    {% include post-nav-buttons.html %}
+
+    <article class="entry-wrap">
+      <div class="entry-content">
+        {{ content }}
+      </div>
+
+      {% include post-nav-buttons.html %}
+
+      {% include social-share.html %}
+
+      {% include visit_my_youtube_channel.html %}
+
+      {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+      {% endif %}
+    </article>
+  </div>
+
+  <script src="{{ '/assets/javascripts/post-nav-return-button.js' | relative_url }}"></script>
+
+</main>

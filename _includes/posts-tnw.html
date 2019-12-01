@@ -1,0 +1,23 @@
+{% include nav-btn-back.html link="/" text="Back to the Main Page" margin-bottom="20" %}
+
+{% if include.sortOrder == "desc" %}
+  <h4 id="oldest-first--show-newest-first">Oldest First | <a href="/blog/">Show Newest First</a> | <a href="/poweredup/">Powered Up Posts Only</a></h4>
+{% else %}
+  <h4 id="newest-first--show-oldest-first">Newest First | <a href="/blog/descending">Show Oldest First</a> | <a href="/poweredup/">Powered Up Posts Only</a></h4>
+{% endif %}
+
+<hr />
+
+<div class="entries-list">
+
+  {% if include.sortOrder == "desc" %}
+  	{% for post in site.posts reversed %}
+  	  {% include entry.html %}
+  	{% endfor %}
+  {% else %}
+  	{% for post in site.posts %}
+  	  {% include entry.html %}
+  	{% endfor %}
+  {% endif %}
+
+</div>

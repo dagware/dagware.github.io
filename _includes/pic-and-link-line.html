@@ -1,0 +1,14 @@
+{% capture image-width-style %}
+{% if include.image-width %}
+ width:{{ include.image-width }}px;
+{% else %}
+{% endif %}
+{% endcapture %}
+<p>
+  <a href="{{ include.link }}">
+    <img src="{{ include.image }}" alt="{{ include.name }}" style="margin-right:20px;{{ image-width-style }}" {% if include.border %}class="image-border"{% endif %}>
+  </a>
+  <span style="font-size: 28px">
+    <a href="{{ include.link }}">{{ include.name }}</a>
+  </span>
+</p>

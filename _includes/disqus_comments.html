@@ -1,0 +1,37 @@
+{% if page.comments != false and jekyll.environment == "production" %}
+  <div id="disqus_guest">
+      <hr />
+
+      <a name="comments"></a>
+      <h2 id="comments">Comments</h2>
+
+      <h3 id="now-you-can-comment-as-a-guest">Now you can comment as a Guest!</h3>
+
+      <p><b>You won't receive email notifications of my replies, though.</b></p>
+
+      <ul>
+        <li>Use any name.</li>
+        <li>Use <em>test@example.com</em> for your email address.</li>
+        <li>“Check” all the boxes. Since you’re using a fake email address, it doesn’t matter what you agree to. 😛</li>
+      </ul>
+
+      <p><b>I’ll have to approve your comment</b>, but as long as you’re not spamming me, that’s no problem.
+
+      Just remember that I <em>do</em> sleep sometimes, or I might be in the workshop, so <b>I might not approve it right away</b>.</p>
+  </div>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = '{{ page.url | absolute_url }}';
+      this.page.identifier = '{{ page.url | absolute_url }}';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{% endif %}
