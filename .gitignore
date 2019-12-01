@@ -1,1 +1,4 @@
 _site/
+.sass-cache
+.jekyll-metadata
+.sass-cache/e2f22f0b5dbc05591800703c4e32c4fa189b5771/_intro.scssc

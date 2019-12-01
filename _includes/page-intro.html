@@ -7,6 +7,14 @@
     {% assign intro_image = intro_image | escape %}
     <div class="intro-image">
       <img src="{{ intro_image }}" alt="{{ page.title }}">
+      {% if page.image_overlay %}
+        {% assign intro_image_overlay = page.image_overlay.path | default: page.image_overlay %}
+        {% unless intro_image_overlay contains '://' %}
+          {% assign intro_image_overlay = intro_image_overlay | relative_url %}
+        {% endunless %}
+        {% assign intro_image_overlay = intro_image_overlay | escape %}
+        <img src="{{ intro_image_overlay }}" class="intro-image-overlay">
+      {% endif %}
     </div>
   {% endif %}
 

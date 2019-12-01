@@ -17,6 +17,15 @@ code {
   white-space : pre-wrap !important;
 }
 
+.intro-image-overlay {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 20%;
+  height: auto;
+  max-width: 100%;
+}
+
 .hidden {
  display: none;
 }
